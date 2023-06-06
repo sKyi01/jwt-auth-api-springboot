@@ -19,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee registerEmployee(EmployeeModel empModel) {
-		Employee emp= new Employee();
+		Employee emp = new Employee();
 		emp.setEmail(empModel.getEmail());
 		emp.setComName(empModel.getComName());
 		emp.setEmpName(emp.getEmpName());
@@ -28,8 +28,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 		emp.setYearExperience(empModel.getYearExperience());
 
 		empRepository.save(emp);
-
-
 
 		return null;
 	}

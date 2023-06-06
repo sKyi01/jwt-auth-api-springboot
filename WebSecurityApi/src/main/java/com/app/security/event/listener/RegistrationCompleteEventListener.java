@@ -13,8 +13,8 @@ public class RegistrationCompleteEventListener implements ApplicationListener<Re
 	public void onApplicationEvent(RegistrationCompleteEvent event) {
 		// Create the Verification Token for the User with Link
 
-		Employee emp=event.getEmp();
-		String token=UUID.randomUUID().toString();
+		Employee emp = event.getEmp();
+		String token = UUID.randomUUID().toString();
 
 		// Send Mail to Employee
 	}

@@ -23,7 +23,7 @@ public class RegistrationController {
 	@GetMapping("/register")
 	public String registerEmployee(@RequestBody EmployeeModel empModel) {
 		Employee emp = empService.registerEmployee(empModel);
-		publisher.publishEvent(new RegistrationCompleteEvent(emp,"url"));
+		publisher.publishEvent(new RegistrationCompleteEvent(emp, "url"));
 		return "success";
 	}
 

@@ -28,10 +28,10 @@ public class RegistrationCompleteEvent extends ApplicationEvent {
 
 	private String applicationUrl;
 
-	public RegistrationCompleteEvent(Employee emp,String applicationUrl) {
+	public RegistrationCompleteEvent(Employee emp, String applicationUrl) {
 		super(emp);
-		this.emp=emp;
-		this.applicationUrl=applicationUrl;
+		this.emp = emp;
+		this.applicationUrl = applicationUrl;
 	}
 
 }
