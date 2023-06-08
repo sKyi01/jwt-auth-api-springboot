@@ -1,33 +1,35 @@
 package com.app.security.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Employee {
 
-	public Employee() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String empName;
+	private String comName;
 
-	public Employee(String empName, String comName, int yearExperience, String email, String password, boolean enabled,
-			String empRole) {
+	public Employee(String empName, String comName, int yearExperience, String email, String password) {
 		super();
 		this.empName = empName;
 		this.comName = comName;
 		this.yearExperience = yearExperience;
 		this.email = email;
 		this.password = password;
-		this.enabled = enabled;
-		this.empRole = empRole;
+	}
+
+	private int yearExperience;
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", empName=" + empName + ", comName=" + comName + ", yearExperience="
+				+ yearExperience + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", empRole="
+				+ empRole + "]";
 	}
 
 	public Employee(Long id, String empName, String comName, int yearExperience, String email, String password,
@@ -43,11 +45,16 @@ public class Employee {
 		this.empRole = empRole;
 	}
 
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", empName=" + empName + ", comName=" + comName + ", yearExperience="
-				+ yearExperience + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", empRole="
-				+ empRole + "]";
+	public Employee(String empName, String comName, int yearExperience, String email, String password, boolean enabled,
+			String empRole) {
+		super();
+		this.empName = empName;
+		this.comName = comName;
+		this.yearExperience = yearExperience;
+		this.email = email;
+		this.password = password;
+		this.enabled = enabled;
+		this.empRole = empRole;
 	}
 
 	public Long getId() {
@@ -114,14 +121,13 @@ public class Employee {
 		this.empRole = empRole;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String empName;
-	private String comName;
-	private int yearExperience;
 	private String email;
-	@Column(length = 60)
+
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private String password;
 	private boolean enabled = false;
 	private String empRole;

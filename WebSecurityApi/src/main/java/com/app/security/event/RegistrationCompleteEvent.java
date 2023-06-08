@@ -30,6 +30,8 @@ public class RegistrationCompleteEvent extends ApplicationEvent {
 
 	public RegistrationCompleteEvent(Employee emp, String applicationUrl) {
 		super(emp);
+		System.out.println(emp);
+		System.out.println(applicationUrl);
 		this.emp = emp;
 		this.applicationUrl = applicationUrl;
 	}

@@ -5,8 +5,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.app.security.entity.Employee;
-import com.app.security.model.EmployeeModel;
+import com.app.security.entity.VerificationToken;
 import com.app.security.repositories.EmployeeRepository;
+import com.app.security.repositories.VerificationTokenRepository;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -17,19 +18,26 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	@Autowired
+	private VerificationTokenRepository verificationTokenRepository;
+
 	@Override
-	public Employee registerEmployee(EmployeeModel empModel) {
-		Employee emp = new Employee();
-		emp.setEmail(empModel.getEmail());
-		emp.setComName(empModel.getComName());
-		emp.setEmpName(emp.getEmpName());
-		emp.setEmpRole("USER");
-		emp.setPassword(passwordEncoder.encode(empModel.getPassword()));
-		emp.setYearExperience(empModel.getYearExperience());
+	public Employee registerEmployee(Employee emp) {
+
+		System.out.println("employee valu : " + emp);
+		emp.setPassword(passwordEncoder.encode(emp.getPassword()));
 
 		empRepository.save(emp);
 
-		return null;
+		return emp;
+	}
+
+	@Override
+	public void saveVerificationTokenForEmployee(Employee emp, String token) {
+
+		VerificationToken verificationToken = new VerificationToken(emp, token);
+		verificationTokenRepository.save(verificationToken);
+
 	}
 
 }
