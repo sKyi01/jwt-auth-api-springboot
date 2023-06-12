@@ -1,9 +1,11 @@
 package com.app.security.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Employee {
@@ -11,19 +13,29 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotNull
 	private String empName;
+	@NotNull
 	private String comName;
+	@NotNull
+	private int yearExperience;
+	@NotNull
+	@Column(unique = true)
+	private String email;
+	@NotNull
+	private String password;
+	private boolean enabled = false;
+	private String empRole;
 
 	public Employee(String empName, String comName, int yearExperience, String email, String password) {
 		super();
+
 		this.empName = empName;
 		this.comName = comName;
 		this.yearExperience = yearExperience;
 		this.email = email;
 		this.password = password;
 	}
-
-	private int yearExperience;
 
 	@Override
 	public String toString() {
@@ -121,15 +133,9 @@ public class Employee {
 		this.empRole = empRole;
 	}
 
-	private String email;
-
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	private String password;
-	private boolean enabled = false;
-	private String empRole;
 
 }

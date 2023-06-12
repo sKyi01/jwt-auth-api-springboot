@@ -27,8 +27,38 @@ public class VerificationToken {
 
 	private Date expirationTime;
 
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public Date getExpirationTime() {
+		return expirationTime;
+	}
+
+	@Override
+	public String toString() {
+		return "VerificationToken [id=" + id + ", token=" + token + ", expirationTime=" + expirationTime + ", emp="
+				+ emp + "]";
+	}
+
+	public void setExpirationTime(Date expirationTime) {
+		this.expirationTime = expirationTime;
+	}
+
+	public Employee getEmp() {
+		return emp;
+	}
+
+	public void setEmp(Employee emp) {
+		this.emp = emp;
+	}
+
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "FK_USER_VERIFY_TOKEN"))
+	@JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "FK_EMPLOYEE_VERIFY_TOKEN"))
 	private Employee emp;
 
 	public VerificationToken(Employee emp, String token) {
