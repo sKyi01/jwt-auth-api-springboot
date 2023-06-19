@@ -1,5 +1,7 @@
 server:
   port: 1234
+  servlet:
+         context-path: /api
   
 spring:
      datasource:
@@ -11,3 +13,5 @@ spring:
         show-sql: true
         hibernate:
             ddl-auto: update
+            
+
