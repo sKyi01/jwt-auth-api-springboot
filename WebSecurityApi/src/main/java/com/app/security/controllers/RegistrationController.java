@@ -48,7 +48,7 @@ public class RegistrationController {
 		return "success";
 	}
 
-	@GetMapping("verifyRegistration")
+	@GetMapping("/verifyRegistration")
 	public String verifyRegistration(@RequestParam("token") String token) {
 		String result = empService.validateVerificationToken(token);
 		if (result.equalsIgnoreCase("valid")) {
