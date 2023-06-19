@@ -8,4 +8,6 @@ import com.app.security.entity.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
+	Employee findByEmail(String email);
+
 }
