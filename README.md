@@ -4,7 +4,7 @@
 jwt-auth-api-springboot
 
 ## Description
-This project is a RESTful API built using Spring Boot, JPA (Java Persistence API), and Spring Security. It provides authentication and authorization using JWT (JSON Web Tokens) for securing the API endpoints. Additionally, it includes functionalities for user verification, password verification, password reset, and password change using tokens or user email and old password.
+This project is a RESTful API built using Spring Boot, JPA (Java Persistence API), and Spring Security. It provides authentication and authorization using JWT (JSON Web Tokens) for securing the API endpoints. Additionally, it includes functionalities for user verification by tokens, resend verification token by using old token, password verification, password reset, and password change using tokens or user email and old password.
 
 ## Features
 - User registration
